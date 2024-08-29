@@ -1,0 +1,35 @@
+.hero-section {
+    background-image: url('/images/hotel-index-image.jpg'); /* 배경 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh; /* 화면 높이의 80%를 차지 */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative; /* 자식 요소를 기준으로 포지셔닝 */
+}
+
+.hero-text {
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경 */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.main-content {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8); /* 반투명한 흰색 배경 */
+    top: 50%; /* Hero Section의 가운데에 배치 */
+    left: 30%;
+    transform: translate(-50%, -50%); /* 가운데 정렬 */
+    z-index: 2; /* Hero Section 위로 쌓임 */
+    color: black; /* 텍스트 색상 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}

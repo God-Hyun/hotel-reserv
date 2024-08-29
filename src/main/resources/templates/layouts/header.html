@@ -1,0 +1,28 @@
+<!-- layouts/header.html -->
+<header th:fragment="header">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">호텔 로고</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/main}">홈</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/vip-room}">VIP룸</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/general-room}">일반룸</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/directions}">찾아오는길</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-primary text-white" th:href="@{/reservation}">예약하기</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

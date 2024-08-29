@@ -11,6 +11,9 @@ spring:
     password: kopo
   thymeleaf:
     cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    enabled: true
 
   jpa:
     open-in-view: false
