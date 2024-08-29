@@ -10,13 +10,40 @@
 <body>
 
 <div th:insert="layouts/header :: header"></div>
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dxqsuzhn9q"></script>
 
 <main class="main-content container mt-5">
   <h2>대중교통 이용 안내</h2>
   <p>우리 호텔로 오는 대중교통 옵션을 확인하세요.</p>
+  <div id="map" style="width:100%; max-width:800px; height:300px; margin: 100px auto 0;"></div> <!-- 지도 표시 영역 -->
+  <script>
+    var map = new naver.maps.Map('map', {
+       center: new naver.maps.LatLng(37.465723, 127.140424),
+       zoom: 15
+   });
+
+   var marker = new naver.maps.Marker({
+       position: new naver.maps.LatLng(37.465723, 127.140424),
+       map: map
+   });
+
+   var infowindow = new naver.maps.InfoWindow({
+       content: "<div><h5>갓현 호텔</h5></div>"
+   });
+
+   naver.maps.Event.addListener(marker, "click", function (e) {
+       if (infowindow.getMap()) {
+           infowindow.close();
+       } else {
+           infowindow.open(map, marker);
+       }
+   });
+
+   infowindow.open(map, marker);
+  </script>
   <ul>
-    <li>지하철: XX역 하차 후 도보 10분</li>
-    <li>버스: XX번 버스 이용, XX 정류장 하차</li>
+    <li>지하철: 남위례역 하차 후 도보 5분</li>
+    <li>버스: 50번 버스 이용, XX 정류장 하차</li>
   </ul>
 </main>
 

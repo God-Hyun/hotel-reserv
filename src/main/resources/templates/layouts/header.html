@@ -14,15 +14,62 @@
         <li class="nav-item">
           <a class="nav-link" th:href="@{/main}">홈</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/vip-room}">VIP룸</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            주변 관광지
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" th:href="@{/katsuo-omoi}">카츠오모이</a>
+            <a class="dropdown-item" th:href="@{/changgok-stream}">창곡천</a>
+            <a class="dropdown-item" th:href="@{/central-plaza}">중앙광장</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/standard-room}">일반룸</a>
+
+        <!-- 교통 안내 드롭다운 메뉴 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="transportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            교통 안내
+          </a>
+          <div class="dropdown-menu" aria-labelledby="transportDropdown">
+            <a class="dropdown-item" th:href="@{/directions}">찾아오는 길</a>
+            <a class="dropdown-item" th:href="@{/public-transport}">대중교통 이용 안내</a>
+            <a class="dropdown-item" th:href="@{/by-car}">자가용 이용 안내</a>
+          </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/directions}">찾아오는길</a>
+
+        <!-- 예약 정보 드롭다운 메뉴 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="reservationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            예약 정보
+          </a>
+          <div class="dropdown-menu" aria-labelledby="reservationDropdown">
+            <a class="dropdown-item" th:href="@{/reservation-status}">예약 상황 보기</a>
+            <a class="dropdown-item" th:href="@{/make-reservation}">예약하기</a>
+          </div>
         </li>
+
+        <!-- 관리자 기능 드롭다운 메뉴 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            관리자 기능
+          </a>
+          <div class="dropdown-menu" aria-labelledby="adminDropdown">
+            <a class="dropdown-item" th:href="@{/admin-management}">예약 관리</a>
+            <a class="dropdown-item" th:href="@{/admin-logout}">로그아웃</a>
+          </div>
+        </li>
+
+        <!-- 추가 정보 드롭다운 메뉴 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="infoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            추가 정보
+          </a>
+          <div class="dropdown-menu" aria-labelledby="infoDropdown">
+            <a class="dropdown-item" th:href="@{/resort-news}">리조트 소식</a>
+            <a class="dropdown-item" th:href="@{/reviews}">이용 후기</a>
+          </div>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link btn btn-primary text-white" th:href="@{/make-reservation}">예약하기</a>
         </li>
@@ -30,3 +77,4 @@
     </div>
   </nav>
 </header>
+

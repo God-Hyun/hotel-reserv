@@ -16,17 +16,17 @@
     background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경 */
     padding: 20px;
     border-radius: 10px;
+    z-index: 1; /* 헤더보다 낮은 값으로 설정 */
 }
 
 .main-content {
-    position: absolute;
+    position: relative; /* absolute 대신 relative로 변경 */
     background-color: rgba(255, 255, 255, 0.8); /* 반투명한 흰색 배경 */
-    top: 50%; /* Hero Section의 가운데에 배치 */
-    left: 30%;
-    transform: translate(-50%, -50%); /* 가운데 정렬 */
+    margin-top: 20px; /* 적절한 마진으로 설정 */
     z-index: 2; /* Hero Section 위로 쌓임 */
     color: black; /* 텍스트 색상 */
     text-align: center; /* 텍스트 가운데 정렬 */
+    padding: 20px; /* 내용물에 대한 패딩 추가 */
 }
 
 .container {
@@ -34,4 +34,9 @@
     z-index: 1;
 }
 
+#map {
+  width: 70% !important;
+  height: 300px !important;
+  margin-top: 50px !important; /* 상단 여백을 추가하여 지도 위치 조정 */
+}
 

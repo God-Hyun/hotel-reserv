@@ -20,3 +20,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+  # 나중에 모든 기능 만들면 없애기
+  server:
+    error:
+      whitelabel:
+        enabled: false  # 기본 Whitelabel Error Page 비활성화
+      path: /error
+      include-exception: true  # 필요에 따라 예외 메시지를 포함할 수 있음
