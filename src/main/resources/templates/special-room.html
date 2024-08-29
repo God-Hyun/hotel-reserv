@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>호텔 메인 페이지</title>
+  <title>특별 룸</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 
 <!-- Header Fragment Include -->
 <div th:insert="layouts/header :: header"></div>
 
+<!-- Hero Section -->
+<section class="hero-section" style="background-image: url('/images/special-room-hero.jpg');">
+  <div class="hero-text">
+    <h1>특별 룸</h1>
+    <p>특별한 경험을 위한 최고의 선택</p>
+    <a href="/make-reservation" class="btn btn-primary">지금 예약하기</a>
+  </div>
+</section>
+
 <!-- Main Content -->
-<main class="container mt-5">
-  <h1>환영합니다!</h1>
-  <p>우리 호텔에 오신 것을 환영합니다. 최고의 서비스와 편안함을 제공합니다.</p>
-  <!-- 다른 본문 내용 추가 -->
+<main class="main-content container mt-5">
+  <h2>특별 룸 소개</h2>
+  <p>특별 룸은 고급스러운 디자인과 최고급 편의 시설을 갖춘, 특별한 고객을 위한 공간입니다.</p>
 </main>
 
 <!-- Footer Fragment Include -->

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예약하기</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:insert="layouts/header :: header"></div>
+
+<main class="main-content container mt-5">
+  <h2>예약하기</h2>
+  <form action="/submit-reservation" method="post">
+    <div class="form-group">
+      <label for="name">이름</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">전화번호</label>
+      <input type="tel" class="form-control" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="date">예약 날짜</label>
+      <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+    <div class="form-group">
+      <label for="room-type">객실 유형</label>
+      <select class="form-control" id="room-type" name="room-type">
+        <option>VIP 룸</option>
+        <option>일반 룸</option>
+        <option>합리적인 룸</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">예약 제출</button>
+  </form>
+</main>
+
+<div th:insert="layouts/footer :: footer"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

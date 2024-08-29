@@ -1,7 +1,11 @@
 <!-- layouts/header.html -->
 <header th:fragment="header">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">호텔 로고</a>
+    <a class="navbar-brand" href="/main">
+      <!-- 로고 이미지 추가 -->
+      <img src="/images/logo.jpg" alt="호텔 로고" style="height: 40px;">
+      갓현 호텔
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,13 +18,13 @@
           <a class="nav-link" th:href="@{/vip-room}">VIP룸</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" th:href="@{/general-room}">일반룸</a>
+          <a class="nav-link" th:href="@{/standard-room}">일반룸</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" th:href="@{/directions}">찾아오는길</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-primary text-white" th:href="@{/reservation}">예약하기</a>
+          <a class="nav-link btn btn-primary text-white" th:href="@{/make-reservation}">예약하기</a>
         </li>
       </ul>
     </div>

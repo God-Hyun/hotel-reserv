@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 예약 관리</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:insert="layouts/header :: header"></div>
+
+<main class="main-content container mt-5">
+  <h2>예약 관리</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>예약 번호</th>
+      <th>이름</th>
+      <th>전화번호</th>
+      <th>객실 유형</th>
+      <th>날짜</th>
+      <th>관리</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>12345</td>
+      <td>홍길동</td>
+      <td>010-1234-5678</td>
+      <td>VIP 룸</td>
+      <td>2024-09-01</td>
+      <td>
+        <a href="#" class="btn btn-sm btn-warning">수정</a>
+        <a href="#" class="btn btn-sm btn-danger">삭제</a>
+      </td>
+    </tr>
+    <!-- 더 많은 예약 데이터 -->
+    </tbody>
+  </table>
+</main>
+
+<div th:insert="layouts/footer :: footer"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
