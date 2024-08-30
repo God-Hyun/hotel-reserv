@@ -11,13 +11,13 @@ import java.util.List;
 public class BookingsService {
 
     @Autowired
-    private BookingsRepository reservationRepository;
+    private BookingsRepository BookingsRepository;
 
     public List<Bookings> getAllBookings() {
-        return reservationRepository.findAll();
+        return BookingsRepository.findAll();
     }
 
     public Bookings saveBookings(Bookings bookings) {
-        return reservationRepository.save(bookings);
+        return BookingsRepository.save(bookings);
     }
 }
