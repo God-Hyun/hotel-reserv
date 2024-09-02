@@ -22,12 +22,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>2024-09-01</td>
-      <td>VIP 룸</td>
-      <td>예약 완료</td>
+    <tr th:each="booking : ${bookings}">
+      <td th:text="${booking.checkInDate} + ' ~ ' + ${booking.checkOutDate}"></td>
+      <td th:text="${booking.roomType}"></td>
+      <td th:text="${booking.status}"></td>
     </tr>
-    <!-- 더 많은 예약 데이터 -->
     </tbody>
   </table>
 </main>

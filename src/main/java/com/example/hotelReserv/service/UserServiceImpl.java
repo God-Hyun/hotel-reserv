@@ -4,6 +4,7 @@ import com.example.hotelReserv.DTO.UserDTO;
 import com.example.hotelReserv.entity.User;
 import com.example.hotelReserv.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,9 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<UserDTO> getAllUsers() {
@@ -69,5 +73,26 @@ public class UserServiceImpl implements UserService{
         user.setPhone(dto.getPhone());
         user.setAdmin(dto.isAdmin());
         return user;
+    }
+    // 회원가입 메서드
+    public void registerUser(UserDTO userDTO) {
+        User user = new User();
+        user.setFirst_name(userDTO.getFirstName());
+        user.setLast_name(userDTO.getLastName());
+        user.setEmail(userDTO.getEmail());
+        user.setPhone(userDTO.getPhone());
+        user.setAdmin(false); // 기본적으로 일반 사용자로 설정
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword())); // 비밀번호 암호화
+        userRepository.save(user);
+    }
+
+    // 로그인 인증 메서드
+    public boolean authenticate(String email, String password) {
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            return passwordEncoder.matches(password, user.getPassword());
+        }
+        return false;
     }
 }

@@ -10,4 +10,7 @@ public interface UserService {
     Optional<UserDTO> getUserById(Long id);
     UserDTO saveUser(UserDTO userDTO);
     void deleteUser(Long id);
+    void registerUser(UserDTO userDTO);
+
+    boolean authenticate(String email, String password);
 }

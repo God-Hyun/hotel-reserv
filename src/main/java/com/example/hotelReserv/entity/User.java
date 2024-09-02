@@ -30,6 +30,9 @@ public class User {
     @Column(name = "is_admin", nullable = false)
     private boolean isAdmin;
 
+    @Column(name = "password", nullable = false)
+    private String password;  // 암호 필드 추가
+
     @OneToMany(mappedBy = "guest")
     private List<Bookings> bookings;
 

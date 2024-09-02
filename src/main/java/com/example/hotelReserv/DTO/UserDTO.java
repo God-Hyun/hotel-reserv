@@ -10,5 +10,5 @@ public class UserDTO {
     private String email;
     private String phone;
     private boolean isAdmin;
-
+    private String password;  // 암호 필드 추가
 }
