@@ -1,12 +1,9 @@
 package com.example.hotelReserv.controller;
 
-import com.example.hotelReserv.entity.Bookings;
 import com.example.hotelReserv.service.BookingsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BookingsController {

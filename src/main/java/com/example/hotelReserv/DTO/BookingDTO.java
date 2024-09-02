@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class BookingsDTO {
+public class BookingDTO {
     private Long id;
     private Long guestId;   // User 엔티티의 ID를 참조
     private Long roomId;    // Rooms 엔티티의 ID를 참조
