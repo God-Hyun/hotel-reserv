@@ -24,7 +24,7 @@ public class UserController {
 
     // 회원가입 요청을 처리하는 메서드
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("user") UserDTO userDTO, Model model) {
+    public String registerUser(UserDTO userDTO, Model model) {
         try {
             userService.registerUser(userDTO);
             return "redirect:/user/login"; // 회원가입 후 로그인 페이지로 리다이렉트
@@ -40,16 +40,8 @@ public class UserController {
         return "login"; // login.html 파일을 렌더링
     }
 
-    // 로그인 요청을 처리하는 메서드
-    @PostMapping("/login")
-    public String loginUser(@RequestParam("email") String email,
-                            @RequestParam("password") String password, Model model) {
-        boolean isAuthenticated = userService.authenticate(email, password);
-        if (isAuthenticated) {
-            return "redirect:/bookings/main"; // 로그인 성공 시 메인 페이지로 리다이렉트
-        } else {
-            model.addAttribute("error", "이메일 또는 비밀번호가 올바르지 않습니다.");
-            return "login"; // 로그인 실패 시 다시 로그인 페이지로
-        }
+    @PostMapping("login")
+    public String LoginForm() {
+        return "redirect:/bookings/main"; // login.html 파일을 렌더링
     }
 }

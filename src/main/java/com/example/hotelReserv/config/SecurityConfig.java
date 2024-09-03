@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .formLogin(formLogin ->
                         formLogin
                                 .loginPage("/login") // 커스텀 로그인 페이지
-                                .defaultSuccessUrl("/main", true)  // 로그인 성공 후 이동할 URL
+                                .defaultSuccessUrl("/bookings/main", true)  // 로그인 성공 후 이동할 URL
                                 .failureUrl("/login?error=true") // 로그인 실패 시 리다이렉트
                                 .permitAll()
                 )

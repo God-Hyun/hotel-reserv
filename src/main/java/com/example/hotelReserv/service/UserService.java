@@ -11,6 +11,4 @@ public interface UserService {
     UserDTO saveUser(UserDTO userDTO);
     void deleteUser(Long id);
     void registerUser(UserDTO userDTO);
-
-    boolean authenticate(String email, String password);
 }

@@ -7,8 +7,8 @@ public class UserDTO {
     private Long id;
     private String firstName;
     private String lastName;
-    private String email;
+    private String username;
     private String phone;
-    private boolean isAdmin;
+    private String role;
     private String password;  // 암호 필드 추가
 }

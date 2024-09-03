@@ -21,14 +21,14 @@ public class User {
     @Column(name = "last_name", nullable = false, length = 20)
     private String last_name;
 
-    @Column(name = "email", nullable = false, length = 50, unique = true)
-    private String email;
+    @Column(name = "username", nullable = false, length = 50, unique = true)
+    private String username;
 
     @Column(name = "phone", length = 20)
     private String phone;
 
-    @Column(name = "is_admin", nullable = false)
-    private boolean isAdmin;
+    @Column(name = "role", nullable = false)
+    private String role;
 
     @Column(name = "password", nullable = false)
     private String password;  // 암호 필드 추가

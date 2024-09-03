@@ -3,6 +3,7 @@ package com.example.hotelReserv.service;
 import com.example.hotelReserv.DTO.UserDTO;
 import com.example.hotelReserv.entity.User;
 import com.example.hotelReserv.repository.UserRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,9 @@ import java.util.stream.Collectors;
    서비스 계층에서 변환 작업을 수행하는 것이 자연스러움.
      */
 
+@Slf4j
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl extends CustomUserDetailService implements UserService{
 
     @Autowired
     private UserRepository userRepository;
@@ -41,6 +43,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDTO saveUser(UserDTO userDTO) {
+        log.info(userDTO.toString());
         User user = convertToEntity(userDTO);
         User savedUser = userRepository.save(user);
         return convertToDTO(savedUser);
@@ -57,9 +60,9 @@ public class UserServiceImpl implements UserService{
         dto.setId(user.getId());
         dto.setFirstName(user.getFirst_name());
         dto.setLastName(user.getLast_name());
-        dto.setEmail(user.getEmail());
+        dto.setUsername(user.getUsername());
         dto.setPhone(user.getPhone());
-        dto.setAdmin(user.isAdmin());
+        dto.setRole(user.getRole());
         return dto;
     }
 
@@ -69,9 +72,9 @@ public class UserServiceImpl implements UserService{
         user.setId(dto.getId());
         user.setFirst_name(dto.getFirstName());
         user.setLast_name(dto.getLastName());
-        user.setEmail(dto.getEmail());
+        user.setUsername(dto.getUsername());
         user.setPhone(dto.getPhone());
-        user.setAdmin(dto.isAdmin());
+        user.setRole(dto.getRole());
         return user;
     }
     // 회원가입 메서드
@@ -79,20 +82,11 @@ public class UserServiceImpl implements UserService{
         User user = new User();
         user.setFirst_name(userDTO.getFirstName());
         user.setLast_name(userDTO.getLastName());
-        user.setEmail(userDTO.getEmail());
+        user.setUsername(userDTO.getUsername());
         user.setPhone(userDTO.getPhone());
-        user.setAdmin(false); // 기본적으로 일반 사용자로 설정
+        user.setRole("ROLE_USER"); // 기본적으로 일반 사용자로 설정
         user.setPassword(passwordEncoder.encode(userDTO.getPassword())); // 비밀번호 암호화
         userRepository.save(user);
     }
 
-    // 로그인 인증 메서드
-    public boolean authenticate(String email, String password) {
-        Optional<User> userOptional = userRepository.findByEmail(email);
-        if (userOptional.isPresent()) {
-            User user = userOptional.get();
-            return passwordEncoder.matches(password, user.getPassword());
-        }
-        return false;
-    }
 }
