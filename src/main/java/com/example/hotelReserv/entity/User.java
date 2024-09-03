@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "User")
+@Table(name = "UserItem")
 public class User {
 
     @Id

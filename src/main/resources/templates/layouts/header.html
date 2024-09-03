@@ -70,6 +70,17 @@
           </div>
         </li>
 
+        <!-- 추가 정보 드롭다운 메뉴 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="login" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            로그인
+          </a>
+          <div class="dropdown-menu" aria-labelledby="login">
+            <a class="dropdown-item" th:href="@{/login}">로그인</a>
+            <a class="dropdown-item" th:href="@{/register}">회원가입</a>
+          </div>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link btn btn-primary text-white" th:href="@{/make-reservation}">예약하기</a>
         </li>

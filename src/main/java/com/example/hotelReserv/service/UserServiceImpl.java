@@ -5,6 +5,7 @@ import com.example.hotelReserv.entity.User;
 import com.example.hotelReserv.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class UserServiceImpl extends CustomUserDetailService implements UserService{
+public class UserServiceImpl extends CustomUserDetailService implements UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -79,6 +80,8 @@ public class UserServiceImpl extends CustomUserDetailService implements UserServ
     }
     // 회원가입 메서드
     public void registerUser(UserDTO userDTO) {
+        log.info(userDTO.toString()); // 로그 확인
+
         User user = new User();
         user.setFirst_name(userDTO.getFirstName());
         user.setLast_name(userDTO.getLastName());
