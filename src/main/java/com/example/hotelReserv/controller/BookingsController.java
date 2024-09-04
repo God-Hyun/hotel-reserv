@@ -2,6 +2,7 @@ package com.example.hotelReserv.controller;
 
 import com.example.hotelReserv.DTO.BookingDTO;
 import com.example.hotelReserv.DTO.RoomDTO;
+import com.example.hotelReserv.DTO.UserDTO;
 import com.example.hotelReserv.entity.Bookings;
 import com.example.hotelReserv.entity.Rooms;
 import com.example.hotelReserv.entity.User;
@@ -63,7 +64,12 @@ public class BookingsController {
         for (BookingDTO booking : bookings) {
             if (booking.getRoomId() != null) {
                 Optional<RoomDTO> roomOpt = roomsService.getRoomById(booking.getRoomId());
-                roomOpt.ifPresent(booking::setRoom);
+                roomOpt.ifPresent(booking::setRoom); // 객실 정보 설정
+            }
+
+            if (booking.getGuestId() != null) {
+                UserDTO userDTO = userService.getUserById(booking.getGuestId()).orElse(null);  // 사용자 정보 가져오기
+                booking.setUser(userDTO);  // 사용자 정보 설정
             }
         }
         model.addAttribute("bookings", bookings);

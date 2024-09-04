@@ -56,11 +56,6 @@ public class MainController {
         return "central-plaza";  // central-plaza.html 파일을 렌더링
     }
 
-    @GetMapping("/admin-management")
-    public String adminManagementPage() {
-        return "admin-management";  // admin-management.html 파일을 렌더링
-    }
-
     @GetMapping("/admin-logout")
     public String adminLogoutPage() {
         return "admin-logout";  // admin-logout.html 파일을 렌더링
