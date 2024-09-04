@@ -37,17 +37,6 @@
           </div>
         </li>
 
-        <!-- 예약 정보 드롭다운 메뉴 -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="reservationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            예약 정보
-          </a>
-          <div class="dropdown-menu" aria-labelledby="reservationDropdown">
-            <a class="dropdown-item" th:href="@{/bookings/list}">예약 상황 보기</a>
-            <a class="dropdown-item" th:href="@{/bookings/create}">예약하기</a>
-          </div>
-        </li>
-
         <!-- 추가 정보 드롭다운 메뉴 -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="infoDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,7 +65,8 @@
             마이페이지
           </a>
           <div class="dropdown-menu" aria-labelledby="userDropdown">
-            <a class="dropdown-item" th:href="@{/profile}">예약 조회</a>
+            <a class="dropdown-item" th:href="@{/bookings/create}">예약하기</a>
+            <a class="dropdown-item" th:href="@{/bookings/list}">예약 조회</a>
             <!-- 로그아웃 링크에 JavaScript 이벤트 추가 -->
             <a class="dropdown-item" href="#" onclick="confirmLogout()">로그아웃</a>
           </div>

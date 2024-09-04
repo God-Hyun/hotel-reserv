@@ -58,6 +58,14 @@ public class BookingsController {
         } else {
             bookings = bookingsService.getBookingsByUsername(username); // 사용자는 자신의 예약만 조회
         }
+
+        // 각 예약에 대해 객실 정보를 설정
+        for (BookingDTO booking : bookings) {
+            if (booking.getRoomId() != null) {
+                Optional<RoomDTO> roomOpt = roomsService.getRoomById(booking.getRoomId());
+                roomOpt.ifPresent(booking::setRoom);
+            }
+        }
         model.addAttribute("bookings", bookings);
 
         return "reservation-status";  // reservation-status.html 파일을 렌더링

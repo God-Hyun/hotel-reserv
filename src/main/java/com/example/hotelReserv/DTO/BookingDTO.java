@@ -15,4 +15,5 @@ public class BookingDTO {
     private String roomType; // 객실 유형
     private String name;    // 추가된 필드
     private String phone;   // 추가된 필드
+    private RoomDTO room; // 추가된 필드
 }
