@@ -92,4 +92,9 @@ public class UserServiceImpl extends CustomUserDetailService implements UserServ
         userRepository.save(user);
     }
 
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username).orElse(null);
+    }
+
 }

@@ -13,4 +13,6 @@ public class BookingDTO {
     private Date checkOutDate;
     private String status;
     private String roomType; // 객실 유형
+    private String name;    // 추가된 필드
+    private String phone;   // 추가된 필드
 }
