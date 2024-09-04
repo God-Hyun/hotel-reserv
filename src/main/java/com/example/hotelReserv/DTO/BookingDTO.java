@@ -11,7 +11,7 @@ public class BookingDTO {
     private Long roomId;    // Rooms 엔티티의 ID를 참조
     private Date checkInDate;
     private Date checkOutDate;
-    private String status;
+    private Long status;
     private String roomType; // 객실 유형
     private String name;    // 추가된 필드
     private String phone;   // 추가된 필드

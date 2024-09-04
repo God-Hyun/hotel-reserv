@@ -27,7 +27,7 @@
       <td th:text="${booking.checkInDate}"></td>
       <td th:text="${booking.checkOutDate}"></td>
       <td th:text="${booking.roomType}"></td>
-      <td th:text="${booking.status}"></td>
+      <td th:text="${booking.status == 1 ? '예약불가' : '예약가능'}"></td>
     </tr>
     </tbody>
   </table>

@@ -39,6 +39,11 @@ public class RoomsServiceImpl implements RoomsService{
         roomsRepository.deleteById(id);
     }
 
+    @Override
+    public Optional<RoomDTO> getRoomByRoomType(String roomType) {
+        return roomsRepository.findByRoomType(roomType).map(this::convertToDTO);
+    }
+
     private RoomDTO convertToDTO(Rooms room) {
         RoomDTO dto = new RoomDTO();
         dto.setId(room.getId());

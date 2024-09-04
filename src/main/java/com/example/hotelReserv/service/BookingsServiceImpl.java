@@ -2,7 +2,11 @@ package com.example.hotelReserv.service;
 
 import com.example.hotelReserv.DTO.BookingDTO;
 import com.example.hotelReserv.entity.Bookings;
+import com.example.hotelReserv.entity.Rooms;
+import com.example.hotelReserv.entity.User;
 import com.example.hotelReserv.repository.BookingsRepository;
+import com.example.hotelReserv.repository.RoomsRepository;
+import com.example.hotelReserv.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,12 @@ public class BookingsServiceImpl implements BookingsService {
 
     @Autowired
     private BookingsRepository bookingsRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoomsRepository roomsRepository;
 
 
     @Override
@@ -31,8 +41,20 @@ public class BookingsServiceImpl implements BookingsService {
     @Override
     public BookingDTO saveBooking(BookingDTO bookingDTO) {
         Bookings bookings = convertToEntity(bookingDTO);
-        Bookings saveBooking = bookingsRepository.save(bookings);
-        return convertToDto(saveBooking);
+        // User 설정
+        if (bookingDTO.getGuestId() != null) {
+            Optional<User> user = userRepository.findById(bookingDTO.getGuestId());
+            user.ifPresent(bookings::setGuest);
+        }
+
+        // Room 설정
+        if (bookingDTO.getRoomId() != null) {
+            Optional<Rooms> room = roomsRepository.findById(bookingDTO.getRoomId());
+            room.ifPresent(bookings::setRoom);
+        }
+
+        Bookings savedBooking = bookingsRepository.save(bookings);
+        return convertToDto(savedBooking);
     }
 
     @Override

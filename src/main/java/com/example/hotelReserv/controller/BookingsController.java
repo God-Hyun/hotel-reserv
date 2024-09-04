@@ -2,6 +2,8 @@ package com.example.hotelReserv.controller;
 
 import com.example.hotelReserv.DTO.BookingDTO;
 import com.example.hotelReserv.DTO.RoomDTO;
+import com.example.hotelReserv.entity.Bookings;
+import com.example.hotelReserv.entity.Rooms;
 import com.example.hotelReserv.entity.User;
 import com.example.hotelReserv.service.BookingsService;
 import com.example.hotelReserv.service.RoomsService;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -54,8 +58,8 @@ public class BookingsController {
         } else {
             bookings = bookingsService.getBookingsByUsername(username); // 사용자는 자신의 예약만 조회
         }
-
         model.addAttribute("bookings", bookings);
+
         return "reservation-status";  // reservation-status.html 파일을 렌더링
     }
 
@@ -98,12 +102,21 @@ public class BookingsController {
         User user = userService.findByUsername(username);
         if (user != null) {
             bookingDTO.setGuestId(user.getId());
+
+            // roomType을 기반으로 roomId를 설정하거나, 프런트엔드에서 roomId를 직접 받아올 수 있도록 수정
+            Optional<RoomDTO> roomDTO = roomsService.getRoomByRoomType(bookingDTO.getRoomType());
+            roomDTO.ifPresent(r -> bookingDTO.setRoomId(r.getId()));
+
+            // 예약이 완료되었으므로 status를 1로 설정
+            bookingDTO.setStatus(1L);
+
             bookingsService.saveBooking(bookingDTO);
+        } else {
+            return "redirect:/login"; // 사용자가 로그인되지 않은 경우 로그인 페이지로 리디렉션
         }
 
         return "redirect:/bookings/list";
     }
-
 
     // 기존 예약을 수정하기 위한 폼을 보여주는 메서드
     @GetMapping("/edit/{id}")
@@ -119,9 +132,4 @@ public class BookingsController {
         bookingsService.deleteBooking(id);
         return "redirect:/bookings/list";
     }
-
-
-
-
-
 }

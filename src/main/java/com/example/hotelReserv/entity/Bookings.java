@@ -32,5 +32,5 @@ public class Bookings {
     private Date checkOutDate;
 
     @Column(name = "status", length = 30)
-    private String status;
+    private Long status;
 }
