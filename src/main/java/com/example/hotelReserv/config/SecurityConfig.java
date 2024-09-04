@@ -24,6 +24,8 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())  // CSRF 보호 비활성화
             .authorizeHttpRequests(authorizeRequests ->
                     authorizeRequests
+                            .requestMatchers("/bookings/**").hasAnyRole("USER", "ADMIN") // 예약 관련 URL은 사용자와 관리자 모두 접근 가능
+                            .requestMatchers("/admin/**").hasRole("ADMIN") // 관리자 전용 페이지 접근 설정
                             .requestMatchers(new AntPathRequestMatcher("/**")).permitAll() //로그인하지 않아도 모든 페이지 접근 가능
                             .requestMatchers("/register", "/login").permitAll()
                             .anyRequest().authenticated()  // 나머지 요청은 인증된 사용자만 접근 가능 게시판 글쓰기나 수정 ? 등등 댓글 포함

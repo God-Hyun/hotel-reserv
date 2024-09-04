@@ -4,11 +4,13 @@ import com.example.hotelReserv.DTO.RoomDTO;
 import com.example.hotelReserv.entity.Rooms;
 import com.example.hotelReserv.repository.RoomsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class RoomsServiceImpl implements RoomsService{
 
     @Autowired

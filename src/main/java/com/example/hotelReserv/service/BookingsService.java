@@ -10,4 +10,5 @@ public interface BookingsService {
     Optional<BookingDTO> getBookingById(Long id);
     BookingDTO saveBooking(BookingDTO bookingDTO);
     void deleteBooking(Long id);
+    List<BookingDTO> getBookingsByUsername(String username); // 사용자 이름으로 예약 조회
 }

@@ -4,11 +4,13 @@ import com.example.hotelReserv.DTO.CommentDTO;
 import com.example.hotelReserv.entity.Comments;
 import com.example.hotelReserv.repository.CommentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class CommentServiceImpl implements CommentService{
 
     @Autowired

@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>예약 상황 보기</title>
+  <title>현재 예약 상황</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 
-<div th:insert="layouts/header :: header"></div>
+<div th:insert="~{layouts/header :: header}"></div>
 
 <main class="main-content container mt-5">
   <h2>현재 예약 상황</h2>
   <table class="table">
     <thead>
     <tr>
-      <th>날짜</th>
+      <th>체크인 날짜</th>
+      <th>체크아웃 날짜</th>
       <th>객실 유형</th>
       <th>예약 상태</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="booking : ${bookings}">
-      <td th:text="${booking.checkInDate} + ' ~ ' + ${booking.checkOutDate}"></td>
+      <td th:text="${booking.checkInDate}"></td>
+      <td th:text="${booking.checkOutDate}"></td>
       <td th:text="${booking.roomType}"></td>
       <td th:text="${booking.status}"></td>
     </tr>
@@ -31,7 +33,7 @@
   </table>
 </main>
 
-<div th:insert="layouts/footer :: footer"></div>
+<div th:insert="~{layouts/footer :: footer}"></div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

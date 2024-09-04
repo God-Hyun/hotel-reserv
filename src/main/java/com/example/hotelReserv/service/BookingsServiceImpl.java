@@ -40,6 +40,12 @@ public class BookingsServiceImpl implements BookingsService {
         bookingsRepository.deleteById(id);
     }
 
+    @Override
+    public List<BookingDTO> getBookingsByUsername(String username) {
+        List<Bookings> bookings = bookingsRepository.findByGuestUsername(username); // username으로 예약 조회
+        return bookings.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
     private BookingDTO convertToDto(Bookings booking) {
         BookingDTO dto = new BookingDTO();
         dto.setId(booking.getId());

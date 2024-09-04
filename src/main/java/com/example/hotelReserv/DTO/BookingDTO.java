@@ -12,4 +12,5 @@ public class BookingDTO {
     private Date checkInDate;
     private Date checkOutDate;
     private String status;
+    private String roomType; // 객실 유형
 }

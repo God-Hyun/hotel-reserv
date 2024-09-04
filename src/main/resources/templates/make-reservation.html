@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,30 +13,30 @@
 
 <main class="main-content container mt-5">
   <h2>예약하기</h2>
-  <form th:action="@{/bookings/submit-reservation}" method="post">
+  <form th:action="@{/bookings/submit-reservation}" method="post" th:object="${booking}">
     <div class="form-group">
-      <label for="name">이름</label>
-      <input type="text" class="form-control" id="name" name="name" required>
+      <label for="guestId">게스트 ID:</label>
+      <input type="number" class="form-control" id="guestId" th:field="*{guestId}" required>
     </div>
     <div class="form-group">
-      <label for="phone">전화번호</label>
-      <input type="tel" class="form-control" id="phone" name="phone" required>
-    </div>
-    <div class="form-group">
-      <label for="checkInDate">예약 날짜</label>
-      <input type="date" class="form-control" id="checkInDate" name="checkInDate" required>
-    </div>
-    <div class="form-group">
-      <label for="roomType">객실 유형</label>
-      <select class="form-control" id="roomType" name="roomType">
+      <label for="roomType">객실 유형:</label>
+      <select class="form-control" id="roomType" th:field="*{roomType}">
         <option value="VIP">VIP Room</option>
         <option value="Standard">Standard Room</option>
         <option value="Reasonable">Special Room</option>
       </select>
     </div>
+    <div class="form-group">
+      <label for="checkInDate">체크인 날짜:</label>
+      <input type="date" class="form-control" id="checkInDate" th:field="*{checkInDate}" required>
+    </div>
+    <div class="form-group">
+      <label for="checkOutDate">체크아웃 날짜:</label>
+      <input type="date" class="form-control" id="checkOutDate" th:field="*{checkOutDate}" required>
+    </div>
     <button type="submit" class="btn btn-primary">예약 제출</button>
+    <a href="/bookings/list" class="btn btn-secondary">취소</a>
   </form>
-
 </main>
 
 <div th:insert="layouts/footer :: footer"></div>
