@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>특별 룸</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
 
@@ -13,11 +13,11 @@
 <div th:insert="layouts/header :: header"></div>
 
 <!-- Hero Section -->
-<section class="hero-section" style="background-image: url('/images/special-room-hero.jpg');">
+<section class="hero-section" style="background-image: url('images/special-room-hero.jpg');">
   <div class="hero-text">
     <h1>특별 룸</h1>
     <p>특별한 경험을 위한 최고의 선택</p>
-    <a href="/bookings/create" class="btn btn-primary">지금 예약하기</a>
+    <a th:href="@{/bookings/create}" class="btn btn-primary">지금 예약하기</a>
   </div>
 </section>
 

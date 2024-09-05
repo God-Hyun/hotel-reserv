@@ -6,31 +6,31 @@
       <div class="col-md-3">
         <h5>호텔에 대해 알아보기</h5>
         <ul class="list-unstyled">
-          <li><a href="/about-us" class="text-white">호텔 소개</a></li>
-          <li><a href="/history" class="text-white">호텔 역사</a></li>
-          <li><a href="/careers" class="text-white">채용 정보</a></li>
-          <li><a href="/news" class="text-white">호텔 소식</a></li>
-          <li><a href="/sustainability" class="text-white">지속 가능성</a></li>
+          <li><a th:href="@{/about-us}" class="text-white">호텔 소개</a></li>
+          <li><a th:href="@{/history}" class="text-white">호텔 역사</a></li>
+          <li><a th:href="@{/careers}" class="text-white">채용 정보</a></li>
+          <li><a th:href="@{/news}" class="text-white">호텔 소식</a></li>
+          <li><a th:href="@{/sustainability}" class="text-white">지속 가능성</a></li>
         </ul>
       </div>
       <!-- 리소스 섹션 -->
       <div class="col-md-3">
         <h5>리소스</h5>
         <ul class="list-unstyled">
-          <li><a href="/contact" class="text-white">문의하기</a></li>
-          <li><a href="/faq" class="text-white">자주 묻는 질문</a></li>
-          <li><a href="/terms" class="text-white">이용 약관</a></li>
-          <li><a href="/privacy" class="text-white">개인정보 보호 정책</a></li>
+          <li><a th:href="@{/contact}" class="text-white">문의하기</a></li>
+          <li><a th:href="@{/faq}" class="text-white">자주 묻는 질문</a></li>
+          <li><a th:href="@{/terms}" class="text-white">이용 약관</a></li>
+          <li><a th:href="@{/privacy}" class="text-white">개인정보 보호 정책</a></li>
         </ul>
       </div>
       <!-- 고객 지원 섹션 -->
       <div class="col-md-3">
         <h5>고객 지원</h5>
         <ul class="list-unstyled">
-          <li><a href="/support" class="text-white">고객 서비스</a></li>
-          <li><a href="/booking-support" class="text-white">예약 지원</a></li>
-          <li><a href="/feedback" class="text-white">피드백</a></li>
-          <li><a href="/site-map" class="text-white">사이트맵</a></li>
+          <li><a th:href="@{/support}" class="text-white">고객 서비스</a></li>
+          <li><a th:href="@{/booking-support}" class="text-white">예약 지원</a></li>
+          <li><a th:href="@{/feedback}" class="text-white">피드백</a></li>
+          <li><a tH:href="@{/site-map}" class="text-white">사이트맵</a></li>
         </ul>
       </div>
       <!-- SNS 및 연락처 섹션 -->
@@ -50,7 +50,7 @@
     </div>
     <hr class="bg-light">
     <div class="text-center py-3">
-      &copy; 2024 호텔 이름. 모든 권리 보유. | <a href="/privacy-policy" class="text-white">개인정보 처리 방침</a> | <a href="/terms-of-service" class="text-white">이용 약관</a>
+      &copy; 2024 호텔 이름. 모든 권리 보유. | <a th:href="@{/privacy-policy}" class="text-white">개인정보 처리 방침</a> | <a th:href="@{/terms-of-service}" class="text-white">이용 약관</a>
     </div>
   </div>
 </footer>

@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>예약 관리</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예약 관리</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 
 <div th:insert="~{layouts/header :: header}"></div>
 
 <main class="main-content container mt-5">
-  <h2>현재 예약 상황</h2>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>체크인 날짜</th>
-      <th>체크아웃 날짜</th>
-      <th>객실 유형</th>
-      <th>예약 상태</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="booking : ${bookings}">
-      <td th:text="${booking.checkInDate}"></td>
-      <td th:text="${booking.checkOutDate}"></td>
-      <td th:text="${booking.room.roomType}"></td>
-      <td th:text="${booking.status == 1 ? '예약불가' : '예약가능'}"></td>
-    </tr>
-    </tbody>
-  </table>
+    <h2>현재 예약 상황</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>체크인 날짜</th>
+            <th>체크아웃 날짜</th>
+            <th>객실 유형</th>
+            <th>예약 상태</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.checkInDate}"></td>
+            <td th:text="${booking.checkOutDate}"></td>
+            <td th:text="${booking.room.roomType}"></td>
+            <td th:text="${booking.status == 1 ? '예약불가' : '예약가능'}"></td>
+        </tr>
+        </tbody>
+    </table>
 
-  <h2>예약 관리</h2>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>예약 번호</th>
-      <th>이름</th>
-      <th>전화번호</th>
-      <th>객실 유형</th>
-      <th>날짜</th>
-      <th>관리</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="booking : ${bookings}">
-      <td th:text="${booking.id}"></td>
-      <td th:text="${booking.user.firstName + ' ' + booking.user.lastName}"></td>
-      <td th:text="${booking.user.phone}"></td>
-      <td th:text="${booking.room.roomType}"></td>
-      <td th:text="${booking.checkInDate}"></td>
-      <td>
-        <a th:href="@{/bookings/edit/{id}(id=${booking.id})}" class="btn btn-sm btn-warning" sec:authorize="hasAuthority('ROLE_ADMIN')">수정</a>
-        <a th:href="@{/bookings/delete/{id}(id=${booking.id})}" class="btn btn-sm btn-danger" sec:authorize="isAuthenticated()">삭제</a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <h2>예약 관리</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>예약 번호</th>
+            <th>이름</th>
+            <th>전화번호</th>
+            <th>객실 유형</th>
+            <th>날짜</th>
+            <th>관리</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.id}"></td>
+            <td th:text="${booking.user.firstName + ' ' + booking.user.lastName}"></td>
+            <td th:text="${booking.user.phone}"></td>
+            <td th:text="${booking.room.roomType}"></td>
+            <td th:text="${booking.checkInDate}"></td>
+            <td>
+                <a th:href="@{/bookings/edit/{id}(id=${booking.id})}" class="btn btn-sm btn-warning"
+                   sec:authorize="hasAuthority('ROLE_ADMIN')">수정</a>
+                <a th:href="@{/bookings/delete/{id}(id=${booking.id})}" class="btn btn-sm btn-danger"
+                   sec:authorize="isAuthenticated()">삭제</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </main>
 
 <div th:insert="~{layouts/footer :: footer}"></div>

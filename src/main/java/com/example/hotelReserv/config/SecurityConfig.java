@@ -40,7 +40,7 @@ public class SecurityConfig {
             .logout(logout ->
                     logout
                             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                            .logoutSuccessUrl("/main")
+                            .logoutSuccessUrl("/hotel/main")
                             .invalidateHttpSession(true)
             )
                 .userDetailsService(customUserDetailService); // 커스텀 UserDetailsService 등록

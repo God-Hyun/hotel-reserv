@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>대중교통 이용 안내</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대중교통 이용 안내</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link tH:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body>
 
@@ -13,38 +13,38 @@
 <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dxqsuzhn9q"></script>
 
 <main class="main-content container mt-5">
-  <h2>대중교통 이용 안내</h2>
-  <p>우리 호텔로 오는 대중교통 옵션을 확인하세요.</p>
-  <div id="map" style="width:100%; max-width:800px; height:300px; margin: 100px auto 0;"></div> <!-- 지도 표시 영역 -->
-  <script>
-    var map = new naver.maps.Map('map', {
-       center: new naver.maps.LatLng(37.465723, 127.140424),
-       zoom: 15
-   });
+    <h2>대중교통 이용 안내</h2>
+    <p>우리 호텔로 오는 대중교통 옵션을 확인하세요.</p>
+    <div id="map" style="width:100%; max-width:800px; height:300px; margin: 100px auto 0;"></div> <!-- 지도 표시 영역 -->
+    <script>
+        var map = new naver.maps.Map('map', {
+           center: new naver.maps.LatLng(37.465723, 127.140424),
+           zoom: 15
+       });
 
-   var marker = new naver.maps.Marker({
-       position: new naver.maps.LatLng(37.465723, 127.140424),
-       map: map
-   });
+       var marker = new naver.maps.Marker({
+           position: new naver.maps.LatLng(37.465723, 127.140424),
+           map: map
+       });
 
-   var infowindow = new naver.maps.InfoWindow({
-       content: "<div><h5>Godhyun Hotel</h5></div>"
-   });
+       var infowindow = new naver.maps.InfoWindow({
+           content: "<div><h5>Godhyun Hotel</h5></div>"
+       });
 
-   naver.maps.Event.addListener(marker, "click", function (e) {
-       if (infowindow.getMap()) {
-           infowindow.close();
-       } else {
-           infowindow.open(map, marker);
-       }
-   });
+       naver.maps.Event.addListener(marker, "click", function (e) {
+           if (infowindow.getMap()) {
+               infowindow.close();
+           } else {
+               infowindow.open(map, marker);
+           }
+       });
 
-   infowindow.open(map, marker);
-  </script>
-  <ul>
-    <li>지하철: 남위례역 하차 후 도보 5분</li>
-    <li>버스: 50번 버스 이용, XX 정류장 하차</li>
-  </ul>
+       infowindow.open(map, marker);
+    </script>
+    <ul>
+        <li>지하철: 남위례역 하차 후 도보 5분</li>
+        <li>버스: 50번 버스 이용, XX 정류장 하차</li>
+    </ul>
 </main>
 
 <div th:insert="layouts/footer :: footer"></div>

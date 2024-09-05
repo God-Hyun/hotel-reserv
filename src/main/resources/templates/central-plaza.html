@@ -1,58 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>주변 관광지 - 위례중앙광장</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/style.css" rel="stylesheet">
-  <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dxqsuzhn9q"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주변 관광지 - 위례중앙광장</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dxqsuzhn9q"></script>
 </head>
 <body>
 
 <div th:insert="layouts/header :: header"></div>
 
 <main class="main-content container mt-5">
-  <h2>위례중앙광장</h2>
-  <p>위례중앙광장은 다양한 문화 행사가 열리는 도심의 중심지입니다.</p>
+    <h2>위례중앙광장</h2>
+    <p>위례중앙광장은 다양한 문화 행사가 열리는 도심의 중심지입니다.</p>
 
-  <div class="row">
-    <div class="col-md-6">
-      <img src="/images/central-plaza.jpg" class="img-fluid" alt="Central Plaza" style="height: 400px; width: 100%; object-fit: cover;">
+    <div class="row">
+        <div class="col-md-6">
+            <img th:src="@{/images/central-plaza.jpg}" class="img-fluid" alt="Central Plaza"
+                 style="height: 400px; width: 100%; object-fit: cover;">
+        </div>
+        <div class="col-md-6">
+            <div id="map" style="width:600px;height:300px;"></div> <!-- 지도 표시 영역 -->
+        </div>
     </div>
-    <div class="col-md-6">
-      <div id="map" style="width:600px;height:300px;"></div> <!-- 지도 표시 영역 -->
-    </div>
-  </div>
 </main>
 
 <div th:insert="layouts/footer :: footer"></div>
 
 <script>
-  // 지도 초기화 함수
-  var map = new naver.maps.Map('map', {
-     center: new naver.maps.LatLng(37.472865, 127.141896),
-     zoom: 15
- });
+    // 지도 초기화 함수
+    var map = new naver.maps.Map('map', {
+       center: new naver.maps.LatLng(37.472865, 127.141896),
+       zoom: 15
+   });
 
- var marker = new naver.maps.Marker({
-     position: new naver.maps.LatLng(37.472865, 127.141896),
-     map: map
- });
+   var marker = new naver.maps.Marker({
+       position: new naver.maps.LatLng(37.472865, 127.141896),
+       map: map
+   });
 
- var infowindow = new naver.maps.InfoWindow({
-     content: "<div><h5>위례중앙광장</h5></div>"
- });
+   var infowindow = new naver.maps.InfoWindow({
+       content: "<div><h5>위례중앙광장</h5></div>"
+   });
 
- naver.maps.Event.addListener(marker, "click", function (e) {
-     if (infowindow.getMap()) {
-         infowindow.close();
-     } else {
-         infowindow.open(map, marker);
-     }
- });
+   naver.maps.Event.addListener(marker, "click", function (e) {
+       if (infowindow.getMap()) {
+           infowindow.close();
+       } else {
+           infowindow.open(map, marker);
+       }
+   });
 
- infowindow.open(map, marker);
+   infowindow.open(map, marker);
 </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주변 관광지 - 카츠오모이</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dxqsuzhn9q"></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <img src="/images/katsuo-omoi.jpg" class="img-fluid" alt="Katsuo Omoi" style="height: 400px; width: 100%; object-fit: cover;">
+            <img th:src="@{/images/katsuo-omoi.jpg}" class="img-fluid" alt="Katsuo Omoi" style="height: 400px; width: 100%; object-fit: cover;">
         </div>
         <div class="col-md-6">
             <div id="map" style="width:600px;height:300px;"></div> <!-- 지도 표시 영역 -->

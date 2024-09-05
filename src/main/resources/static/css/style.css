@@ -1,5 +1,5 @@
 .hero-section {
-    background-image: url('/images/hotel-index-image.jpg'); /* 배경 이미지 경로 */
+    background-image: url('../images/hotel-index-image.jpg'); /* 배경 이미지 경로 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

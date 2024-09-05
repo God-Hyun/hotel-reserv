@@ -47,4 +47,5 @@ public class UserController {
     public String login() {
         return "redirect:/main"; // login.html 파일을 렌더링
     }
+
 }
