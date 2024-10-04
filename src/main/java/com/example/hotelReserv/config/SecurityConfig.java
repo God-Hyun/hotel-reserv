@@ -26,6 +26,7 @@ public class SecurityConfig {
                     authorizeRequests
                             .requestMatchers("/bookings/**").hasAnyRole("USER", "ADMIN") // 예약 관련 URL은 사용자와 관리자 모두 접근 가능
                             .requestMatchers("/admin/**").hasRole("ADMIN") // 관리자 전용 페이지 접근 설정
+                            .requestMatchers("/boards/**").authenticated() // 게시판은 로그인된 사용자만
                             .requestMatchers(new AntPathRequestMatcher("/**")).permitAll() //로그인하지 않아도 모든 페이지 접근 가능
                             .requestMatchers("/register", "/login").permitAll()
                             .anyRequest().authenticated()  // 나머지 요청은 인증된 사용자만 접근 가능 게시판 글쓰기나 수정 ? 등등 댓글 포함
@@ -40,7 +41,7 @@ public class SecurityConfig {
             .logout(logout ->
                     logout
                             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                            .logoutSuccessUrl("/hotel/main")
+                            .logoutSuccessUrl("/main")
                             .invalidateHttpSession(true)
             )
                 .userDetailsService(customUserDetailService); // 커스텀 UserDetailsService 등록

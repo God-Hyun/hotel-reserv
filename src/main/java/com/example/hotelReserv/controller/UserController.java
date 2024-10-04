@@ -48,4 +48,9 @@ public class UserController {
         return "redirect:/main"; // login.html 파일을 렌더링
     }
 
+    @GetMapping("/logout")
+    public String logout() {
+        return "redirect:/main";
+    }
+
 }
