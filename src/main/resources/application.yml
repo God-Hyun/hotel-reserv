@@ -13,8 +13,10 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.26.66:12506/HotelReserv?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
+#    url: jdbc:mysql:localhost:8080/HotelReserv?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
     username: root
     password: kopo
+#    password: 1234
   thymeleaf:
     cache: false
     prefix: classpath:/templates/
@@ -26,6 +28,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+#    properties:
+#      hibernate.dialect: org.hibernate.dialect.MySQLDialect
 
 #  # 나중에 모든 기능 만들면 없애기
 #  server:
