@@ -65,17 +65,3 @@ MVC 아키텍처에 따라 다음과 같이 계층을 구분하여 유지보수�
 본 프로젝트를 통해 **보안 관리와 REST API 설계, CRUD 구현** 등의 기술을 실제 서비스 수준에서 학습하고 적용하는 기회를 가졌습니다.
 향후에는 JWT 기반 인증 방식을 도입하여 보안성을 한층 강화하고, 클라우드 환경에서의 배포와 운영까지 경험해 보고 싶습니다.
 
----
-
-### **프로젝트 설치 및 실행 방법**
-1. **레포지토리 클론**
-   ```bash
-   git clone https://github.com/God-Hyun/hotel-reserv.git
-
-2. MySQL 데이터베이스 설정
-
-src/main/resources/application.properties에서 데이터베이스 설정을 수정합니다.
-
-3. 프로젝트 실행
-   ```bash
-   ./gradlew bootRun
