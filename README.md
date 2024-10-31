@@ -36,7 +36,7 @@
 
 ### **기술 스택**
 - **백엔드**: Java, Spring Boot, Spring Data JPA, Spring Security
-- **프론트엔드**: JavaScript, HTML/CSS (Thymeleaf)
+- **프론트엔드**: JavaScript, HTML/CSS (템플릿엔진 : Thymeleaf)
 - **데이터베이스**: MySQL
 - **서버/운영체제**: Apache, Tomcat, Ubuntu 22.04 LTS
 - **협업 및 관리 도구**: Git, IntelliJ IDEA
